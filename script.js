@@ -1,7 +1,19 @@
 function bmiCalculator(weight, height) {
   var bmi = weight / (height * height);
-  return Math.round(bmi);
+  var interpretation;
+
+  if (bmi < 18.5) {
+    interpretation = "Your BMI is " + bmi + ", so you are underweight.";
+  } else if (bmi >= 18.5 && bmi <= 24.9) {
+    interpretation = "Your BMI is " + bmi + ", so you have a normal weight.";
+  } else {
+    interpretation = "Your BMI is " + bmi + ", so you are overweight.";
+  }
+
+  return interpretation;
 }
 
-var bmi = bmiCalculator(65, 1.8);
-console.log(bmi);
+var weight = parseFloat(prompt("Enter your weight in kilograms:"));
+var height = parseFloat(prompt("Enter your height in meters:"));
+
+alert(bmiCalculator(weight, height));
